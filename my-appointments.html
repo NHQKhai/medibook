@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Lịch hẹn của tôi - MediBook</title>
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Lịch hẹn của tôi</h1>
+        <div class="breadcrumb"><a href="index.html">Trang chủ</a> / Lịch hẹn của tôi</div>
+    </div>
+</div>
+
+<section>
+<div class="container">
+    <div class="section-head left reveal">
+        <h2>Quản lý lịch khám</h2>
+        <p>Xem, sửa, hủy hoặc đồng bộ lịch hẹn vào Google Calendar / Outlook.</p>
+    </div>
+
+    <div class="appt-tabs">
+        <button class="active" data-tab="upcoming">Sắp tới (0)</button>
+        <button data-tab="history">Đã khám (0)</button>
+        <button data-tab="cancelled">Đã hủy (0)</button>
+    </div>
+
+    <div class="appt-list" id="apptList"></div>
+</div>
+</section>
+
+<div class="modal-backdrop" id="cancelModal">
+    <div class="modal" style="max-width:480px">
+        <span class="close" onclick="this.parentElement.parentElement.classList.remove('show')">×</span>
+        <h3>Hủy lịch hẹn?</h3>
+        <p>Bạn có chắc muốn hủy lịch hẹn này? Vui lòng cho biết lý do (sẽ giúp chúng tôi cải thiện dịch vụ).</p>
+        <select style="width:100%;padding:10px;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:10px">
+            <option>Bận đột xuất</option>
+            <option>Đặt nhầm bác sĩ/giờ</option>
+            <option>Đã khỏi bệnh</option>
+            <option>Lý do khác</option>
+        </select>
+        <textarea rows="3" placeholder="Ghi chú thêm (không bắt buộc)" style="width:100%;padding:10px;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:10px"></textarea>
+        <button class="btn btn-primary btn-block" onclick="alert('Đã hủy lịch hẹn. Phí sẽ được hoàn lại trong 3-5 ngày làm việc.');this.parentElement.parentElement.classList.remove('show')">Xác nhận hủy</button>
+    </div>
+</div>
+
+<div id="siteFooter"></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+mountLayout('');
+const APPTS = { upcoming: [], history: [], cancelled: [] };
+const STATUS_BADGE = {
+    paid:{txt:'Đã thanh toán',c:'#00a85a'},
+    pending:{txt:'Chờ thanh toán',c:'#ffa500'},
+    done:{txt:'Đã khám',c:'#3182ce'},
+    cancelled:{txt:'Đã hủy',c:'#a0aec0'}
+};
+function render(tab){
+    const list = APPTS[tab];
+    if(!list || list.length===0){
+        document.getElementById('apptList').innerHTML = `
+            <div style="text-align:center;padding:60px 20px;background:#f8fafc;border-radius:16px">
+                <div style="font-size:64px;margin-bottom:14px">📅</div>
+                <h3 style="color:#0a2540;margin-bottom:8px">Bạn chưa có lịch hẹn nào</h3>
+                <p style="color:#64748b;margin-bottom:18px">Đặt lịch khám với hơn 1.000 bác sĩ chuyên khoa ngay hôm nay.</p>
+                <a href="booking.html" class="btn btn-primary">Đặt lịch ngay →</a>
+            </div>`;
+        return;
+    }
+    document.getElementById('apptList').innerHTML = list.map(a=>`
+        <div class="appt-card reveal visible">
+            <img src="${a.img}" alt="${a.dr}">
+            <div class="appt-info">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                    <strong>${a.dr}</strong>
+                    <span class="badge" style="background:${STATUS_BADGE[a.status].c}">${STATUS_BADGE[a.status].txt}</span>
+                </div>
+                <p><strong>Chuyên khoa:</strong> ${a.spec}</p>
+                <p><strong>Ngày khám:</strong> ${a.date}</p>
+                <p><strong>Bệnh viện:</strong> ${a.hospital}</p>
+                <p style="color:#a0aec0;font-size:13px">Mã lịch hẹn: ${a.code}</p>
+            </div>
+            <div class="appt-actions">
+                ${a.status==='pending'?'<a href="payment.html" class="btn btn-primary btn-sm">Thanh toán</a>':''}
+                ${a.status==='paid'||a.status==='pending'?`
+                    <button class="btn btn-outline btn-sm" onclick="alert('Đã thêm vào Google Calendar (demo)')">📅 Thêm Calendar</button>
+                    <button class="btn btn-outline btn-sm" onclick="alert('Đang chuyển sang trang đổi lịch...')">Đổi lịch</button>
+                    <button class="btn btn-outline btn-sm" style="color:#e53e3e;border-color:#e53e3e" onclick="document.getElementById('cancelModal').classList.add('show')">Hủy lịch</button>
+                `:''}
+                ${a.status==='done'?'<a href="javascript:openReview()" class="btn btn-primary btn-sm">Đánh giá</a>':''}
+            </div>
+        </div>
+    `).join('');
+}
+document.querySelectorAll('.appt-tabs button').forEach(b=>{
+    b.onclick=()=>{
+        document.querySelectorAll('.appt-tabs button').forEach(x=>x.classList.remove('active'));
+        b.classList.add('active'); render(b.dataset.tab);
+    };
+});
+function openReview(){
+    const html = `
+    <div class="modal" style="max-width:520px">
+        <span class="close" onclick="this.parentElement.parentElement.classList.remove('show')">×</span>
+        <h3>Đánh giá bác sĩ</h3>
+        <p style="margin-bottom:10px">Bạn cảm thấy buổi khám thế nào?</p>
+        <div style="font-size:32px;text-align:center;letter-spacing:6px;cursor:pointer">⭐⭐⭐⭐⭐</div>
+        <textarea rows="4" placeholder="Chia sẻ trải nghiệm của bạn..." style="width:100%;padding:10px;border:1px solid #e2e8f0;border-radius:8px;margin:10px 0"></textarea>
+        <button class="btn btn-primary btn-block" onclick="alert('Cảm ơn bạn đã đánh giá!');this.parentElement.parentElement.classList.remove('show')">Gửi đánh giá</button>
+    </div>`;
+    let m = document.getElementById('rvModal');
+    if(!m){ m=document.createElement('div'); m.id='rvModal'; m.className='modal-backdrop'; document.body.appendChild(m); }
+    m.innerHTML = html; m.classList.add('show');
+}
+render('upcoming');
+initReveal();
+</script>
+</body>
+</html>

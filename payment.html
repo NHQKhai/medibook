@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Thanh toán - MediBook</title>
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Thanh toán lịch khám</h1>
+        <div class="breadcrumb"><a href="index.html">Trang chủ</a> / <a href="booking.html">Đặt lịch</a> / Thanh toán</div>
+    </div>
+</div>
+
+<section>
+<div class="container">
+<div class="booking-wrap">
+    <form class="booking-form reveal" onsubmit="event.preventDefault();document.getElementById('okModal').classList.add('show')">
+        <h2>Chọn phương thức thanh toán</h2>
+        <p style="color:#718096;margin-bottom:18px">Vui lòng chọn một trong các phương thức dưới đây. Mọi giao dịch đều được mã hóa SSL 256-bit.</p>
+
+        <div class="pay-methods">
+            <label class="pay-opt"><input type="radio" name="pm" value="cash" checked>
+                <div><strong>💵 Thanh toán tại bệnh viện (COD)</strong><small>Thanh toán trực tiếp khi đến khám</small></div>
+            </label>
+            <label class="pay-opt"><input type="radio" name="pm" value="card">
+                <div><strong>💳 Thẻ tín dụng / ghi nợ</strong><small>Visa, Mastercard, JCB — bảo mật PCI-DSS</small></div>
+            </label>
+            <label class="pay-opt"><input type="radio" name="pm" value="bank">
+                <div><strong>🏦 Chuyển khoản ngân hàng</strong><small>VCB, TCB, MB, VPB, BIDV...</small></div>
+            </label>
+            <label class="pay-opt"><input type="radio" name="pm" value="momo">
+                <div><strong>📱 Ví điện tử MoMo / ZaloPay / VNPay</strong><small>Thanh toán qua QR - nhanh chóng</small></div>
+            </label>
+            <label class="pay-opt"><input type="radio" name="pm" value="paypal">
+                <div><strong>🌐 PayPal</strong><small>Dành cho khách quốc tế</small></div>
+            </label>
+        </div>
+
+        <h2 style="margin-top:28px">Mã khuyến mãi</h2>
+        <div class="form-row">
+            <div class="form-group"><label>Nhập mã giảm giá</label><input type="text" placeholder="VD: MEDI10, NEWUSER..."></div>
+            <div class="form-group" style="align-self:end"><button type="button" class="btn btn-outline btn-block" onclick="alert('Mã không hợp lệ hoặc đã hết hạn')">Áp dụng</button></div>
+        </div>
+
+        <label style="display:flex;align-items:center;gap:8px;font-weight:400;font-size:13px;margin:18px 0">
+            <input type="checkbox" required> Tôi đã đọc và đồng ý với <a href="terms.html" style="color:var(--primary)">điều khoản thanh toán</a>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Xác nhận thanh toán</button>
+    </form>
+
+    <aside class="booking-summary reveal">
+        <h3>Chi tiết đơn hàng</h3>
+        <div class="summary-row"><span class="label">Mã lịch hẹn</span><span>#MB2026-0087</span></div>
+        <div class="summary-row"><span class="label">Bác sĩ</span><span>BS. Nguyễn Văn Hùng</span></div>
+        <div class="summary-row"><span class="label">Chuyên khoa</span><span>Tim mạch</span></div>
+        <div class="summary-row"><span class="label">Ngày khám</span><span>25/04/2026 - 09:00</span></div>
+        <div class="summary-row"><span class="label">Phí khám</span><span>350.000 ₫</span></div>
+        <div class="summary-row"><span class="label">Phí đặt lịch</span><span>0 ₫</span></div>
+        <div class="summary-row"><span class="label">Giảm giá</span><span style="color:#e53e3e">-0 ₫</span></div>
+        <div class="summary-row" style="border-top:1px solid #e2e8f0;margin-top:10px;padding-top:14px">
+            <span class="label">Tổng cộng</span>
+            <strong style="color:#00a85a;font-size:20px">350.000 ₫</strong>
+        </div>
+        <div style="margin-top:14px;padding:12px;background:#e8f7ef;border-radius:8px;font-size:12px;color:#0e7c5b">
+            🔒 Giao dịch an toàn — SSL 256-bit — Tuân thủ PCI-DSS
+        </div>
+    </aside>
+</div>
+</div>
+</section>
+
+<div class="modal-backdrop" id="okModal">
+    <div class="modal">
+        <div style="font-size:48px;margin-bottom:10px">✅</div>
+        <h3 style="color:#00a85a">Thanh toán thành công!</h3>
+        <p>Hóa đơn điện tử đã được gửi tới email của bạn.<br>Mã giao dịch: <strong>MB20260425009</strong></p>
+        <a href="my-appointments.html" class="btn btn-primary btn-block" style="margin-top:14px">Xem lịch hẹn của tôi</a>
+        <a href="index.html" class="btn btn-outline btn-block" style="margin-top:8px">Về trang chủ</a>
+    </div>
+</div>
+
+<div id="siteFooter"></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>mountLayout('');initReveal();</script>
+</body>
+</html>

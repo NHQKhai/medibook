@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MediBook - Đặt lịch khám bệnh trực tuyến hàng đầu Việt Nam</title>
+<meta name="description" content="MediBook - Nền tảng đặt lịch khám bệnh trực tuyến với hơn 1.000 bác sĩ, 30+ chuyên khoa.">
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-text">
+            <h1>Đặt lịch khám bệnh <span>nhanh chóng</span><br>và <span>tiện lợi</span></h1>
+            <p>Kết nối hơn 1.000 bác sĩ uy tín tại các bệnh viện hàng đầu Việt Nam. Đặt lịch chỉ trong 30 giây, không xếp hàng, không chờ đợi.</p>
+            <form class="hero-search" onsubmit="event.preventDefault()" autocomplete="off">
+                <input type="text" placeholder="Tìm bác sĩ, chuyên khoa, bệnh viện..." id="heroSearchInput">
+                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+            </form>
+            <div class="hero-stats">
+                <div class="hero-stat"><strong>1.000+</strong><span>Bác sĩ uy tín</span></div>
+                <div class="hero-stat"><strong>30+</strong><span>Chuyên khoa</span></div>
+                <div class="hero-stat"><strong>500K+</strong><span>Lượt đặt lịch</span></div>
+                <div class="hero-stat"><strong>4.9/5</strong><span>Đánh giá</span></div>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="images/Blog01_2026.png" alt="Đặt lịch khám bệnh trực tuyến" onerror="this.src='images/banners/hospital1.png'">
+        </div>
+    </div>
+</section>
+
+<section class="reveal">
+    <div class="container">
+        <div class="section-head">
+            <h2>Chuyên khoa nổi bật</h2>
+            <p>Đặt lịch khám với hàng trăm chuyên khoa hàng đầu</p>
+        </div>
+        <div class="spec-grid" id="specGrid"></div>
+    </div>
+</section>
+
+<section class="features reveal">
+    <div class="container">
+        <div class="section-head">
+            <h2>Vì sao chọn MediBook?</h2>
+            <p>Đặt lịch đơn giản, an toàn và hoàn toàn miễn phí</p>
+        </div>
+        <div class="feat-grid">
+            <div class="feat-card"><div class="feat-icon">1</div><h3>Bác sĩ uy tín</h3><p>Hồ sơ bác sĩ được xác minh, kinh nghiệm và bằng cấp rõ ràng.</p></div>
+            <div class="feat-card"><div class="feat-icon">2</div><h3>Đặt lịch nhanh</h3><p>Thao tác đơn giản, xác nhận lịch chỉ trong vài phút.</p></div>
+            <div class="feat-card"><div class="feat-icon">3</div><h3>Bảo mật thông tin</h3><p>Hồ sơ bệnh nhân được bảo mật tuyệt đối theo chuẩn quốc tế.</p></div>
+            <div class="feat-card"><div class="feat-icon">4</div><h3>Hỗ trợ 24/7</h3><p>Đội ngũ chăm sóc khách hàng sẵn sàng hỗ trợ mọi lúc.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="reveal">
+    <div class="container">
+        <div class="section-head">
+            <h2>Đội ngũ bác sĩ tiêu biểu</h2>
+            <p>Chọn chuyên khoa để xem bác sĩ phù hợp</p>
+        </div>
+        <div class="chip-bar" id="homeSpecChips"></div>
+        <div class="carousel-wrap" id="docCarouselWrap">
+            <button class="carousel-btn prev" type="button" aria-label="Trước">‹</button>
+            <div class="carousel-track" id="docCarousel"></div>
+            <button class="carousel-btn next" type="button" aria-label="Sau">›</button>
+        </div>
+        <div style="text-align:center;margin-top:30px">
+            <a href="doctors.html" class="btn btn-outline">Xem tất cả bác sĩ</a>
+        </div>
+    </div>
+</section>
+
+<div class="container reveal">
+    <div class="guide-cta">
+        <div class="guide-cta-text">
+            <h2>Hướng dẫn sử dụng MediBook</h2>
+            <p>Chỉ với 6 bước đơn giản, bạn có thể đặt lịch khám với hơn 1.000 bác sĩ uy tín. Hướng dẫn chi tiết cho cả máy tính và điện thoại.</p>
+            <a href="guide.html" class="btn btn-primary">Xem hướng dẫn chi tiết</a>
+        </div>
+        <div class="guide-cta-img">
+            <img src="images/guide/hero.png" alt="Hướng dẫn sử dụng MediBook" onerror="this.src='images/banners/hospital1.png'">
+        </div>
+    </div>
+</div>
+
+<section class="testimonials reveal">
+    <div class="container">
+        <div class="section-head">
+            <h2>Khách hàng nói gì về chúng tôi</h2>
+            <p>Những phản hồi chân thực từ hàng trăm nghìn người dùng MediBook</p>
+        </div>
+        <div class="carousel-wrap" id="testiCarouselWrap">
+            <button class="carousel-btn prev" type="button">‹</button>
+            <div class="carousel-track" id="testiCarousel"></div>
+            <button class="carousel-btn next" type="button">›</button>
+        </div>
+    </div>
+</section>
+
+<section style="padding-top:0" class="reveal">
+    <div class="container">
+        <div class="section-head">
+            <h2>Tin tức Y khoa</h2>
+            <p>Cập nhật kiến thức sức khỏe mới nhất từ chuyên gia</p>
+        </div>
+        <div class="carousel-wrap" id="newsCarouselWrap">
+            <button class="carousel-btn prev" type="button">‹</button>
+            <div class="carousel-track" id="newsCarousel"></div>
+            <button class="carousel-btn next" type="button">›</button>
+        </div>
+        <div style="text-align:center;margin-top:30px">
+            <a href="news.html" class="btn btn-outline">Xem tất cả tin tức</a>
+        </div>
+    </div>
+</section>
+
+<section class="reveal" style="background:var(--bg-soft);padding:60px 0">
+    <div class="container">
+        <div class="section-head">
+            <h2>Mạng lưới bệnh viện liên kết</h2>
+            <p>MediBook hợp tác với 12+ bệnh viện uy tín trên toàn quốc</p>
+        </div>
+        <div class="carousel-wrap" id="hospCarouselWrap">
+            <button class="carousel-btn prev" type="button">‹</button>
+            <div class="carousel-track" id="hospCarousel"></div>
+            <button class="carousel-btn next" type="button">›</button>
+        </div>
+    </div>
+</section>
+
+<div class="sponsors">
+    <div class="container">
+        <h3>Đối tác & Nhà tài trợ</h3>
+        <div class="carousel-wrap" id="sponsorsCarouselWrap" style="padding:0">
+            <div class="carousel-track" id="sponsorsTrack"></div>
+        </div>
+    </div>
+</div>
+
+<div id="siteFooter"></div>
+
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+    mountLayout('home');
+    // Specialties: show ALL
+    renderSpecialties('specGrid');
+    // Home doctor chips (filter carousel)
+    const chipBar = document.getElementById('homeSpecChips');
+    let activeSlug = '';
+    const renderHomeDocs = () => {
+        const list = activeSlug ? DOCTORS.filter(d=>d.specSlug===activeSlug) : DOCTORS.slice(0,12);
+        const track = document.getElementById('docCarousel');
+        track.innerHTML = '';
+        renderDoctorsCarousel('docCarousel', list);
+        // re-init carousel
+        const wrap = document.getElementById('docCarouselWrap');
+        wrap.replaceWith(wrap.cloneNode(true));
+        initCarousel('#docCarouselWrap', {speed:0.4, step:320});
+    };
+    chipBar.innerHTML = '<button type="button" class="chip active" data-slug="">Tất cả</button>' +
+        SPECIALTIES.map(s => `<button type="button" class="chip" data-slug="${s.slug}">${s.name}</button>`).join('');
+    chipBar.addEventListener('click', e => {
+        const b = e.target.closest('.chip');
+        if (!b) return;
+        chipBar.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');
+        activeSlug = b.dataset.slug;
+        renderHomeDocs();
+    });
+    renderDoctorsCarousel('docCarousel');
+    initCarousel('#docCarouselWrap', {speed:0.4, step:320});
+    // Testimonials carousel
+    renderTestimonialsCarousel('testiCarousel');
+    initCarousel('#testiCarouselWrap', {speed:0.3, step:320});
+    // News carousel
+    renderNewsCarousel('newsCarousel');
+    initCarousel('#newsCarouselWrap', {speed:0.4, step:380});
+    // Hospitals network carousel
+    renderHospitalsCarousel('hospCarousel');
+    initCarousel('#hospCarouselWrap', {speed:0.35, step:340});
+    // Sponsors carousel (no buttons, faster auto)
+    renderSponsors('sponsorsTrack');
+    initCarousel('#sponsorsCarouselWrap', {speed:0.6});
+    initHeroSearch();
+    initReveal();
+    initScrollTop();
+</script>
+</body>
+</html>

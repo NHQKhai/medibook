@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Bệnh viện - MediBook</title>
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<div class="page-header">
+    <div class="container" id="hospHead"></div>
+</div>
+
+<section>
+    <div class="container">
+        <div class="hosp-detail-grid">
+            <div>
+                <img id="hospCover" alt="" style="width:100%;border-radius:12px;box-shadow:var(--shadow);margin-bottom:18px">
+                <div id="hospInfo"></div>
+            </div>
+            <div>
+                <h3 style="color:var(--primary);margin-bottom:12px">Vị trí trên bản đồ</h3>
+                <div id="hospMap" style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow)"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background:var(--bg-soft)">
+    <div class="container">
+        <h2 style="color:var(--primary);margin-bottom:18px">Đội ngũ bác sĩ tại bệnh viện</h2>
+        <div class="doc-grid" id="hospDocs"></div>
+    </div>
+</section>
+
+<div id="siteFooter"></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+mountLayout('hosp');
+initHospitalPage();
+initReveal();
+</script>
+</body>
+</html>

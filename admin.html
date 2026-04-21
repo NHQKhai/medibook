@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Quản trị MediBook</title>
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Bảng điều khiển quản trị</h1>
+        <div class="breadcrumb"><a href="index.html">Trang chủ</a> / Quản trị</div>
+    </div>
+</div>
+
+<section>
+<div class="container">
+    <div class="admin-stats">
+        <div class="stat-card reveal" style="border-left:4px solid #00a85a"><h3>2,847</h3><p>Lịch hẹn tháng này</p><small style="color:#00a85a">▲ 12.3%</small></div>
+        <div class="stat-card reveal" style="border-left:4px solid #3182ce"><h3>15,420</h3><p>Người dùng hoạt động</p><small style="color:#3182ce">▲ 8.5%</small></div>
+        <div class="stat-card reveal" style="border-left:4px solid #ed8936"><h3>389</h3><p>Bác sĩ đang hợp tác</p><small style="color:#ed8936">▲ 4 mới</small></div>
+        <div class="stat-card reveal" style="border-left:4px solid #9f7aea"><h3>1.2 tỷ ₫</h3><p>Doanh thu tháng</p><small style="color:#9f7aea">▲ 18.7%</small></div>
+    </div>
+
+    <div class="admin-grid">
+        <div class="admin-panel reveal">
+            <h2>📋 Lịch hẹn gần nhất</h2>
+            <table class="admin-table">
+                <thead><tr><th>Mã</th><th>Bệnh nhân</th><th>Bác sĩ</th><th>Ngày</th><th>Trạng thái</th></tr></thead>
+                <tbody>
+                    <tr><td>#0091</td><td>Nguyễn Văn A</td><td>BS. Hùng</td><td>25/04</td><td><span class="badge" style="background:#00a85a">Đã TT</span></td></tr>
+                    <tr><td>#0092</td><td>Trần Thị B</td><td>BS. Lan</td><td>25/04</td><td><span class="badge" style="background:#ffa500">Chờ</span></td></tr>
+                    <tr><td>#0093</td><td>Lê Văn C</td><td>BS. Tuấn</td><td>26/04</td><td><span class="badge" style="background:#00a85a">Đã TT</span></td></tr>
+                    <tr><td>#0094</td><td>Phạm Thị D</td><td>BS. Hà</td><td>26/04</td><td><span class="badge" style="background:#a0aec0">Hủy</span></td></tr>
+                    <tr><td>#0095</td><td>Hoàng Văn E</td><td>BS. Lan</td><td>02/05</td><td><span class="badge" style="background:#ffa500">Chờ</span></td></tr>
+                </tbody>
+            </table>
+            <a href="javascript:alert('Demo')" style="color:var(--primary);font-size:14px">Xem tất cả →</a>
+        </div>
+
+        <div class="admin-panel reveal">
+            <h2>👥 Quản lý nhanh</h2>
+            <ul class="admin-menu">
+                <li><a href="javascript:alert('Demo')">👤 Quản lý người dùng (15,420)</a></li>
+                <li><a href="javascript:alert('Demo')">🩺 Quản lý bác sĩ (389)</a></li>
+                <li><a href="javascript:alert('Demo')">🏥 Quản lý bệnh viện (12)</a></li>
+                <li><a href="javascript:alert('Demo')">💼 Quản lý dịch vụ &amp; chuyên khoa</a></li>
+                <li><a href="javascript:alert('Demo')">💰 Báo cáo doanh thu</a></li>
+                <li><a href="promotions.html">🎁 Quản lý khuyến mãi</a></li>
+                <li><a href="javascript:alert('Demo')">⭐ Duyệt đánh giá &amp; phản hồi</a></li>
+                <li><a href="javascript:alert('Demo')">📊 Thống kê &amp; phân tích</a></li>
+                <li><a href="javascript:alert('Demo')">⚙️ Cấu hình hệ thống</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="admin-panel reveal" style="margin-top:24px">
+        <h2>📈 Biểu đồ doanh thu 7 ngày</h2>
+        <div class="bar-chart">
+            <div class="bar" style="height:55%" data-label="T2"><span>180tr</span></div>
+            <div class="bar" style="height:72%" data-label="T3"><span>235tr</span></div>
+            <div class="bar" style="height:64%" data-label="T4"><span>208tr</span></div>
+            <div class="bar" style="height:88%" data-label="T5"><span>286tr</span></div>
+            <div class="bar" style="height:95%" data-label="T6"><span>310tr</span></div>
+            <div class="bar" style="height:78%" data-label="T7"><span>254tr</span></div>
+            <div class="bar" style="height:42%" data-label="CN"><span>137tr</span></div>
+        </div>
+    </div>
+</div>
+</section>
+
+<div id="siteFooter"></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>mountLayout('');initReveal();</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Khuyến mãi - MediBook</title>
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Chương trình khuyến mãi</h1>
+        <div class="breadcrumb"><a href="index.html">Trang chủ</a> / Khuyến mãi</div>
+    </div>
+</div>
+
+<section>
+<div class="container">
+    <div class="section-head left reveal">
+        <h2>🎁 Ưu đãi dành cho bạn</h2>
+        <p>Áp dụng mã để nhận giảm giá khi đặt lịch khám. Xem điều khoản áp dụng tại mỗi voucher.</p>
+    </div>
+
+    <div class="promo-grid">
+        <div class="promo-card reveal">
+            <div class="promo-tag">GIẢM 10%</div>
+            <h3>Khách hàng mới</h3>
+            <p>Giảm ngay 10% (tối đa 50.000₫) cho lần đặt lịch đầu tiên tại MediBook.</p>
+            <div class="promo-code">NEWUSER10</div>
+            <small>HSD: 31/12/2026 · Áp dụng toàn bộ chuyên khoa</small>
+            <button class="btn btn-primary btn-block" onclick="navigator.clipboard.writeText('NEWUSER10');this.textContent='✓ Đã sao chép!'">Sao chép mã</button>
+        </div>
+
+        <div class="promo-card reveal">
+            <div class="promo-tag" style="background:#f59e0b">GIẢM 100K</div>
+            <h3>Khám Tim mạch</h3>
+            <p>Giảm 100.000₫ cho các lịch khám chuyên khoa Tim mạch tại BV Bạch Mai, BV Tâm Anh.</p>
+            <div class="promo-code">TIM100</div>
+            <small>HSD: 30/06/2026 · Chỉ áp dụng với đơn từ 300.000₫</small>
+            <button class="btn btn-primary btn-block" onclick="navigator.clipboard.writeText('TIM100');this.textContent='✓ Đã sao chép!'">Sao chép mã</button>
+        </div>
+
+        <div class="promo-card reveal">
+            <div class="promo-tag" style="background:#ec4899">GIẢM 15%</div>
+            <h3>Gói khám sức khỏe</h3>
+            <p>Giảm 15% cho gói khám sức khỏe tổng quát hoặc gói tiền hôn nhân.</p>
+            <div class="promo-code">HEALTH15</div>
+            <small>HSD: 31/08/2026 · Không áp dụng cùng KM khác</small>
+            <button class="btn btn-primary btn-block" onclick="navigator.clipboard.writeText('HEALTH15');this.textContent='✓ Đã sao chép!'">Sao chép mã</button>
+        </div>
+
+        <div class="promo-card reveal">
+            <div class="promo-tag" style="background:#8b5cf6">GIẢM 50K</div>
+            <h3>Đặt lịch buổi tối</h3>
+            <p>Giảm 50.000₫ khi đặt khung giờ sau 18:00. Khuyến khích tránh giờ cao điểm.</p>
+            <div class="promo-code">EVENING50</div>
+            <small>HSD: Vô thời hạn · Áp dụng thứ 2-6</small>
+            <button class="btn btn-primary btn-block" onclick="navigator.clipboard.writeText('EVENING50');this.textContent='✓ Đã sao chép!'">Sao chép mã</button>
+        </div>
+
+        <div class="promo-card reveal">
+            <div class="promo-tag" style="background:#10b981">FREESHIP</div>
+            <h3>Giao thuốc tận nhà</h3>
+            <p>Miễn phí giao thuốc nội thành HCM &amp; HN cho đơn từ 200.000₫ sau khi khám.</p>
+            <div class="promo-code">FREESHIP200</div>
+            <small>HSD: 31/12/2026 · Nội thành HCM, HN</small>
+            <button class="btn btn-primary btn-block" onclick="navigator.clipboard.writeText('FREESHIP200');this.textContent='✓ Đã sao chép!'">Sao chép mã</button>
+        </div>
+
+        <div class="promo-card reveal">
+            <div class="promo-tag" style="background:#ef4444">-30%</div>
+            <h3>HSSV/Sinh viên</h3>
+            <p>Giảm 30% cho HSSV có xác nhận từ nhà trường. Vui lòng upload thẻ sinh viên.</p>
+            <div class="promo-code">STUDENT30</div>
+            <small>HSD: Theo năm học · Cần xác minh</small>
+            <button class="btn btn-primary btn-block" onclick="navigator.clipboard.writeText('STUDENT30');this.textContent='✓ Đã sao chép!'">Sao chép mã</button>
+        </div>
+    </div>
+
+    <div class="promo-banner reveal">
+        <div>
+            <h3>Đăng ký nhận bản tin khuyến mãi</h3>
+            <p>Nhận mã giảm giá và tin sức khỏe hàng tuần qua email.</p>
+        </div>
+        <form style="display:flex;gap:10px;flex:1;max-width:420px" onsubmit="event.preventDefault();alert('Cảm ơn bạn đã đăng ký!')">
+            <input type="email" required placeholder="your@email.com" style="flex:1;padding:12px;border:none;border-radius:8px">
+            <button class="btn" style="background:#fff;color:var(--primary);font-weight:600">Đăng ký</button>
+        </form>
+    </div>
+</div>
+</section>
+
+<div id="siteFooter"></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>mountLayout('');initReveal();</script>
+</body>
+</html>

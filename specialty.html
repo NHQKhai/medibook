@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Chuyên khoa - MediBook</title>
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<div class="page-header">
+    <div class="container" id="specHead"></div>
+</div>
+
+<section>
+    <div class="container">
+        <h2 style="color:var(--primary);margin-bottom:18px">Bác sĩ chuyên khoa</h2>
+        <div class="doc-grid" id="specDocs"></div>
+    </div>
+</section>
+
+<section style="background:var(--bg-soft)">
+    <div class="container">
+        <h2 style="color:var(--primary);margin-bottom:18px">Bài viết về chuyên khoa</h2>
+        <div class="article-grid" id="specArticles"></div>
+    </div>
+</section>
+
+<div id="siteFooter"></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+mountLayout('spec');
+initSpecialtyPage();
+initReveal();
+</script>
+</body>
+</html>

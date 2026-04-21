@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dịch vụ y tế - MediBook</title>
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Dịch vụ y tế MediBook</h1>
+        <div class="breadcrumb"><a href="index.html">Trang chủ</a> / Dịch vụ</div>
+    </div>
+</div>
+
+<section>
+<div class="container">
+    <div class="section-head left reveal">
+        <h2>Các gói dịch vụ</h2>
+        <p>Lựa chọn dịch vụ phù hợp nhu cầu sức khỏe của bạn. Giá đã bao gồm VAT.</p>
+    </div>
+
+    <div class="service-filter">
+        <input type="search" id="svcSearch" placeholder="🔎 Tìm dịch vụ (khám tổng quát, xét nghiệm, nội soi...)">
+        <select id="svcCat">
+            <option value="">Tất cả danh mục</option>
+            <option>Khám &amp; Tư vấn</option>
+            <option>Xét nghiệm</option>
+            <option>Chẩn đoán hình ảnh</option>
+            <option>Gói khám tổng quát</option>
+            <option>Thủ thuật</option>
+        </select>
+    </div>
+
+    <div class="service-grid" id="svcGrid"></div>
+</div>
+</section>
+
+<div id="siteFooter"></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+mountLayout('');
+const SERVICES = [
+    {name:'Khám nội tổng quát', cat:'Khám & Tư vấn', price:300000, time:'30 phút', desc:'Thăm khám sơn bộ, tư vấn, kê đơn với bác sĩ nội khoa nhiều năm kinh nghiệm.', icon:'🩺'},
+    {name:'Tư vấn trực tuyến (video call)', cat:'Khám & Tư vấn', price:150000, time:'20 phút', desc:'Gặp bác sĩ qua video, phù hợp tư vấn ban đầu, đọc kết quả xét nghiệm.', icon:'💻'},
+    {name:'Xét nghiệm máu tổng quát', cat:'Xét nghiệm', price:450000, time:'1-2 giờ', desc:'CBC, đường huyết, mỡ máu, chức năng gan thận, điện giải đồ.', icon:'🩸'},
+    {name:'Xét nghiệm nước tiểu 10 thông số', cat:'Xét nghiệm', price:120000, time:'30 phút', desc:'Phát hiện nhiễm trùng, bệnh thận, tiểu đường sớm.', icon:'🧪'},
+    {name:'Siêu âm ổ bụng tổng quát', cat:'Chẩn đoán hình ảnh', price:350000, time:'15-20 phút', desc:'Khảo sát gan mật, tụy, thận, lách, bàng quang, tử cung, buồng trứng.', icon:'📷'},
+    {name:'X-Quang tim phổi', cat:'Chẩn đoán hình ảnh', price:200000, time:'5-10 phút', desc:'Đánh giá tim, phổi, khung xương ngực.', icon:'🦴'},
+    {name:'MRI/CT có cản quang', cat:'Chẩn đoán hình ảnh', price:2500000, time:'30-60 phút', desc:'Chẩn đoán chính xác các bệnh lý thần kinh, ung thư, mạch máu.', icon:'🧲'},
+    {name:'Gói khám sức khỏe cơ bản', cat:'Gói khám tổng quát', price:1800000, time:'3-4 giờ', desc:'Khám 6 chuyên khoa + xét nghiệm cơ bản + XQ + siêu âm + điện tim.', icon:'✅'},
+    {name:'Gói khám sức khỏe nâng cao', cat:'Gói khám tổng quát', price:4500000, time:'Nửa ngày', desc:'Gồm gói cơ bản + tầm soát ung thư + nội soi + siêu âm tim + nhũ ảnh.', icon:'⭐'},
+    {name:'Gói khám tiền hôn nhân', cat:'Gói khám tổng quát', price:2600000, time:'3 giờ', desc:'Khám sàng lọc cho cặp đôi trước kết hôn, sàng lọc gen, bệnh lây.', icon:'💍'},
+    {name:'Nội soi dạ dày gây mê', cat:'Thủ thuật', price:1900000, time:'30 phút', desc:'Phát hiện viêm, loét, HP, polyp, ung thư dạ dày giai đoạn sớm.', icon:'🔬'},
+    {name:'Tiêm vaccine phòng cúm', cat:'Thủ thuật', price:350000, time:'5 phút', desc:'Vaccine cúm tứ giá, bảo vệ trong 12 tháng.', icon:'💉'}
+];
+function fmt(n){ return n.toLocaleString('vi-VN') + ' ₫'; }
+function renderSvc(){
+    const q = (document.getElementById('svcSearch').value||'').toLowerCase().trim();
+    const cat = document.getElementById('svcCat').value;
+    const list = SERVICES.filter(s => (!cat || s.cat===cat) && (!q || s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q)));
+    const grid = document.getElementById('svcGrid');
+    if(!list.length){ grid.innerHTML = '<p style="padding:30px;color:#718096">Không tìm thấy dịch vụ phù hợp.</p>'; return; }
+    grid.innerHTML = list.map(s=>`
+        <div class="svc-card reveal visible">
+            <div class="svc-icon">${s.icon}</div>
+            <span class="svc-cat">${s.cat}</span>
+            <h3>${s.name}</h3>
+            <p>${s.desc}</p>
+            <div class="svc-meta"><span>⏱ ${s.time}</span><strong>${fmt(s.price)}</strong></div>
+            <a href="booking.html" class="btn btn-primary btn-block">Đặt ngay</a>
+        </div>
+    `).join('');
+}
+document.getElementById('svcSearch').addEventListener('input', renderSvc);
+document.getElementById('svcCat').addEventListener('change', renderSvc);
+renderSvc(); initReveal();
+</script>
+</body>
+</html>

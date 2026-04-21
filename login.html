@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Đăng nhập - MediBook</title>
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<section style="background:linear-gradient(135deg,#e8f7ef,#d4f1e1);min-height:70vh;padding:40px 0">
+    <div class="container">
+        <div class="auth-wrap">
+            <h1>Đăng nhập MediBook</h1>
+            <p class="sub">Chọn vai trò và đăng nhập để tiếp tục</p>
+            <div class="role-tabs" id="roleTabs">
+                <button type="button" class="active" data-role="patient">Bệnh nhân</button>
+                <button type="button" data-role="doctor">Bác sĩ</button>
+                <button type="button" data-role="student">HSSV</button>
+                <button type="button" data-role="admin">Admin</button>
+            </div>
+            <form onsubmit="event.preventDefault();alert('Đăng nhập thành công với vai trò: '+document.querySelector('.role-tabs .active').textContent);window.location='index.html'">
+                <div class="form-group">
+                    <label id="idLabel">Số điện thoại / Email</label>
+                    <input type="text" id="loginId" required placeholder="Nhập thông tin đăng nhập">
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <input type="password" required placeholder="••••••••">
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:13px">
+                    <label style="display:flex;align-items:center;gap:6px;font-weight:400"><input type="checkbox"> Ghi nhớ đăng nhập</label>
+                    <a href="#" style="color:var(--primary)">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Đăng nhập</button>
+            </form>
+            <div style="text-align:center;margin:20px 0;color:#aaa;font-size:13px;position:relative">
+                <span style="background:#fff;padding:0 12px;position:relative;z-index:1">hoặc đăng nhập bằng</span>
+                <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:#e2e8f0"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <button type="button" class="btn btn-outline" onclick="alert('Đăng nhập Google (demo)')">Google</button>
+                <button type="button" class="btn btn-outline" onclick="alert('Đăng nhập Facebook (demo)')">Facebook</button>
+            </div>
+            <div class="auth-foot">
+                Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="siteFooter"></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+mountLayout('');
+document.querySelectorAll('.role-tabs button').forEach(b => {
+    b.addEventListener('click', () => {
+        document.querySelectorAll('.role-tabs button').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        const role = b.dataset.role;
+        const label = document.getElementById('idLabel');
+        const input = document.getElementById('loginId');
+        if (role === 'admin') { label.textContent = 'Tên đăng nhập Admin'; input.placeholder='admin@medibook.vn'; }
+        else if (role === 'doctor') { label.textContent='Mã bác sĩ hoặc Email'; input.placeholder='BS0001 hoặc email'; }
+        else if (role === 'student') { label.textContent='Mã HSSV / Email'; input.placeholder='HSSV2025 hoặc email trường'; }
+        else { label.textContent='Số điện thoại / Email'; input.placeholder='0901234567 hoặc email'; }
+    });
+});
+</script>
+</body>
+</html>
